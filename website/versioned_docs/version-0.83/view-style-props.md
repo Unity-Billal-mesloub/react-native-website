@@ -3,10 +3,12 @@ id: view-style-props
 title: View Style Props
 ---
 
+import ExperimentalAPIWarning from './\_experimental-api-warning.mdx';
+import {getCoreBranchNameForCurrentVersion} from '@site/src/getCoreBranchNameForCurrentVersion';
+
 ### Example
 
 ```SnackPlayer name=ViewStyleProps
-import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -68,6 +70,33 @@ export default App;
 | Type               |
 | ------------------ |
 | [color](colors.md) |
+
+---
+
+### `experimental_backgroundImage`
+
+<ExperimentalAPIWarning />
+
+`experimental_backgroundImage` provides the ability to draw a [`linear-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/linear-gradient) ([0.76.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG-0.7x.md#v0760)) and [`radial-gradient()`](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Values/gradient/radial-gradient) ([0.80.x+](https://github.com/facebook/react-native/blob/main/CHANGELOG.md#v0800)) using a web-like syntax.
+
+```tsx
+// Simple usage:
+<View style={{
+  experimental_backgroundImage: 'linear-gradient(45deg, blue, red)'
+}} />
+<View style={{
+  experimental_backgroundImage: 'radial-gradient(ellipse farthest-corner at 30% 40%, red, blue)'
+}} />
+```
+
+More complex examples of usage can be found in the RNTester app (with `PlatformColor` supports):
+
+- <a href={`https://github.com/facebook/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/LinearGradient/LinearGradientExample.js`}>LinearGradientExample.js</a>
+- <a href={`https://github.com/facebook/react-native/blob/${getCoreBranchNameForCurrentVersion()}/packages/rn-tester/js/examples/RadialGradient/RadialGradientExample.js`}>RadialGradientExample.js</a>
+
+| Type                                                                                                                                                                                               |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| string, array of objects: `{type: 'linear-gradient', direction: string, colorStops: object[] }`, `{type: 'radial-gradient', shape: string, position: object, size: string, colorStops: object[] }` |
 
 ---
 
@@ -392,7 +421,7 @@ The following filter functions work on Android only:
 ### `mixBlendMode`
 
 :::note
-`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page)
+`mixBlendMode` is only available on the [New Architecture](/architecture/landing-page) and **Android 10+**
 :::
 
 Controls how the `View` blends its colors with the other elements in its **stacking context**. Check out the [MDN documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode) for a full overview of each blending function.

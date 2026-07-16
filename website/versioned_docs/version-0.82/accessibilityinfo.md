@@ -8,7 +8,7 @@ Sometimes it's useful to know whether or not the device has a screen reader that
 ## Example
 
 ```SnackPlayer name=AccessibilityInfo%20Example&supportedPlatforms=android,ios
-import React, {useState, useEffect} from 'react';
+import {useState, useEffect} from 'react';
 import {AccessibilityInfo, Text, StyleSheet} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -224,6 +224,26 @@ Query whether a screen reader is currently enabled. Returns a promise which reso
 
 ---
 
+### `isHighTextContrastEnabled()` <div className="label android">Android</div>
+
+```tsx
+static isHighTextContrastEnabled(): Promise<boolean>
+```
+
+Query whether high text contrast is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when high text contrast is enabled and `false` otherwise.
+
+---
+
+### `isDarkerSystemColorsEnabled()` <div className="label ios">iOS</div>
+
+```tsx
+static isDarkerSystemColorsEnabled(): Promise<boolean>
+```
+
+Query whether dark system colors is currently enabled. Returns a promise which resolves to a boolean. The result is `true` when dark system colors is enabled and `false` otherwise.
+
+---
+
 ### `prefersCrossFadeTransitions()` <div className="label ios">iOS</div>
 
 ```tsx
@@ -236,7 +256,7 @@ Query whether reduce motion and prefer cross-fade transitions settings are curre
 
 ### `setAccessibilityFocus()`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Prefer using `sendAccessibilityEvent` with eventType `focus` instead.
 :::
 

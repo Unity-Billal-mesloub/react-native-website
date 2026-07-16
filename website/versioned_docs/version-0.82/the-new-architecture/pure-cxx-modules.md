@@ -71,7 +71,7 @@ export default TurboModuleRegistry.getEnforcing<Spec>(
 
 ## 2. Configure Codegen
 
-The next step is to configure [Codegen](what-is-codegen.md) in your `package.json`. Update the file to include:
+The next step is to configure [Codegen](what-is-codegen.mdx) in your `package.json`. Update the file to include:
 
 ```json title="package.json"
      "start": "react-native start",
@@ -422,7 +422,7 @@ It's now time to access our C++ Turbo Native Module from JS. To do so, we have t
 2. Replace the content of the template with the following code:
 
 ```tsx title="App.tsx"
-import React from 'react';
+import {type JSX, useState} from 'react';
 import {
   Button,
   SafeAreaView,
@@ -433,9 +433,9 @@ import {
 } from 'react-native';
 import SampleTurboModule from './specs/NativeSampleModule';
 
-function App(): React.JSX.Element {
-  const [value, setValue] = React.useState('');
-  const [reversedValue, setReversedValue] = React.useState('');
+function App(): JSX.Element {
+  const [value, setValue] = useState('');
+  const [reversedValue, setReversedValue] = useState('');
 
   const onPress = () => {
     const revString = SampleTurboModule.reverseString(value);

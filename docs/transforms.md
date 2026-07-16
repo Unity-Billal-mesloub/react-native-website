@@ -8,7 +8,6 @@ Transforms are style properties that will help you modify the appearance and pos
 ## Example
 
 ```SnackPlayer name=Transforms%20Example
-import React from 'react';
 import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
@@ -268,7 +267,7 @@ Matrix transforms are useful when you need to apply pre-calculated transformatio
 
 ### 🗑️ `decomposedMatrix`, `rotation`, `scaleX`, `scaleY`, `transformMatrix`, `translateX`, `translateY`
 
-:::warning Deprecated
+:::warning[Deprecated]
 Use the [`transform`](transforms#transform) prop instead.
 :::
 
@@ -279,7 +278,7 @@ The `transformOrigin` property sets the origin for a view's transformations. The
 # Example
 
 ```SnackPlayer name=TransformOrigin%20Example
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef} from 'react';
 import {Animated, View, StyleSheet, Easing} from 'react-native';
 import {SafeAreaView, SafeAreaProvider} from 'react-native-safe-area-context';
 
